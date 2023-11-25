@@ -12,6 +12,6 @@
     include('home.html');
     include(__DIR__ . '/../../includes/footer.php');
     echo '
-    <script src="'.__DIR__ . '/../../public/js/home.js'.'"></script>
+    <script src="./public/assets/js/home.js"></script>
     </body>';
 ?>
