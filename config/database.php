@@ -1,5 +1,5 @@
 <?php
-require "connectionDATA.php";
+require "connectionData.php";
 
 function conectar(){
     $con = mysqli_connect($GLOBALS["host"], $GLOBALS["user"], $GLOBALS["pass"])
