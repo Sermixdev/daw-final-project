@@ -1,4 +1,3 @@
 <?php
-header('Location:app/views/home/home.php');
-exit();
+    include('./app/views/home/home.php')
 ?>
