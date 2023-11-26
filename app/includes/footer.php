@@ -13,10 +13,10 @@
         <p>Tu web de confianza</p>
     </div>
     <div class="footer-newsletter">
-        <div class="newsletter-title">Suscríbete a nuestra Newsletter</div>
+        <p>Suscríbete a nuestra Newsletter</p>
         <div class="footer-input-container">
             <input type="text" class="footer-newsletter-input"/>
-            <button type="button" class="button-newsletter">
+            <button type="button" class="footer-button-newsletter">
                 <img src="./public/images/other/icons/CTA_newsletter.png" alt="Icon CTA_newsletter" />
             </button>
         </div>
