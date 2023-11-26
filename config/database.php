@@ -18,6 +18,8 @@ function crear_bdd($con){
         crear_tabla_pedidos($con);
         crear_tabla_detalles($con);
         crear_tabla_devoluciones($con);
+        crear_tabla_newsletter($con);
+        rellenar_tabla_newsletter($con);
     }catch(Exception $e){
         mysqli_select_db($con, $GLOBALS["db_name"]);
     }
@@ -147,7 +149,20 @@ function crear_tabla_devoluciones($con){
         Motivo VARCHAR(50),
         Completada ENUM('no', 'devuelto') DEFAULT 'no',
         FOREIGN KEY (ID_DetallePedido) REFERENCES DetallesPedido(ID_Detalle)
-);";
+    );";
+    mysqli_query($con,$query);
+}
+
+function crear_tabla_newsletter($con){
+    $query="CREATE TABLE IF NOT EXISTS Newsletter (
+        ID_Newsletter INT PRIMARY KEY auto_increment,
+        Email VARCHAR(50) unique
+    );";
+    mysqli_query($con,$query);
+}
+
+function rellenar_tabla_newsletter($con){
+    $query="INSERT INTO Newsletter (Email) VALUES ('prueba@correo.com');";
     mysqli_query($con,$query);
 }
 
