@@ -6,39 +6,94 @@
     padding: 0;
 }
 
+html {
+    height: 100%;
+    background-image: linear-gradient(to bottom, #ffffff 25%, #27627b 75%);
+    background-attachment: fixed;
+    font-size: 20px;
+}
+
 body {
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
     font-family: 'Irish Grover', Arial, sans-serif;
     width: 100%;
-    height: 100%;
-    background-image: linear-gradient(to bottom, #ffffff, rgb(39, 94, 123));
 }
 
 header {
     display: flex;
-    min-height: 150px;
-    align-items: center;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    min-height: 200px;
     background-color: #ffffff;
     color: rgba(24, 52, 63, 0.766);
-    padding: 10px 0;
     text-align: center;
-}
-
-header img {
-    width: 100px;
+    align-items: center;
+    justify-content: space-around;
 }
 
 footer {
     display: flex;
+    position: relative;
+    width: 100%;
     flex-wrap: wrap;
-    min-height: 150px;
+    min-height: 200px;
     align-items: center;
     justify-content: space-around;
-    background: rgb(39, 94, 123);
+    background: #27627b;
     color: white;
 }
 
+/* Header styles */
+
+header > * {
+    min-width: 25%;
+}
+
+.header-logo img {
+    width: 150px;
+    height: auto;
+    border-radius: 30%;
+}
+
+.header-userinfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#header-userinfo-username {
+    font-size: 24px;
+    margin: 10px;
+    text-decoration: none;
+}
+
+.header-content-menu {
+    display: flex;
+    width: 600px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.header-content-menu a {
+    text-decoration: none;
+}
+
+/* Body styles */
+
+.body-content {
+    flex: 1;
+}
+
 /* Footer styles*/
+
+footer > * {
+    min-width: 25%;
+}
+
 .footer-about {
     display: flex;
     flex-direction: column;
@@ -59,22 +114,28 @@ footer {
 .footer-newsletter {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .footer-input-container {
     display: flex;
     justify-content: center;
+    text-align: center;
 }
 
 .footer-newsletter-input {
+    font-family: 'Irish Grover', Arial, sans-serif;
     width: 250px;
     height: 31px;
     background: #d9d9d9;
     border-radius: 30px;
     margin-right: -40px;
+    padding-left: 10px;
 }
 
-.button-newsletter {
+.footer-button-newsletter {
     width: 40px;
     height: 36px;
     background: #d9d9d9;
