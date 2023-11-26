@@ -13,9 +13,9 @@
         </head>
         <body>';
     include(__DIR__ . '/../../includes/header.php');
-    include('home.html');
+    include('about.html');
     include(__DIR__ . '/../../includes/footer.php');
     echo '
-    <script type="module" src="./public/assets/js/home.js"></script>
+    <script type="module" src="./public/assets/js/about.js"></script>
     </body>';
 ?>
