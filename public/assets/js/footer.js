@@ -13,6 +13,7 @@ button.addEventListener('click', function () {
     // Check if the email is valid
     if (emailRegex.test(email)) {
         Swal.fire('¡Suscripción exitosa!', 'Gracias por suscribirte a nuestra newsletter, ' + email + '!', 'success');
+        input.value = '';
     } else {
         Swal.fire('Error', 'Por favor, introduce un email válido.', 'error');
     }
