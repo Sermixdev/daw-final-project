@@ -1,6 +1,6 @@
 <?php
 $host = "localhost";
-$user = "#"; // Tu usuario local
-$pass = "#"; // Tu contraseña local
+$user = "root"; // Tu usuario local
+$pass = "Mm023n01988l!"; // Tu contraseña local
 $db_name = "EcommerceDB";
 ?>
