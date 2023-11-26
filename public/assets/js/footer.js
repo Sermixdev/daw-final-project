@@ -1,6 +1,6 @@
 // Select the button and input
-var button = document.querySelector('.button-newsletter');
-var input = document.querySelector('.newsletter-input');
+var button = document.querySelector('.footer-button-newsletter');
+var input = document.querySelector('.footer-newsletter-input');
 
 // Add a listen event to the button
 button.addEventListener('click', function () {

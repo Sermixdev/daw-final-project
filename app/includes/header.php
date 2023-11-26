@@ -1,14 +1,14 @@
 <header>
     <div class="header-logo">
-        <img src="./public/images/other/icons/web-logo.png" alt="Logo de la pagina web" />
+        <a href="./index.php"><img src="./public/images/other/icons/web-logo.png" alt="Logo de la pagina web" /></a>
     </div>
     <div class="header-content">
         <div class="header-content-title">
-            <h1>WEB ECOMMERCE</h1>
+        <a href="./index.php"><h1>WEB ECOMMERCE</h1></a>
             <p>Tu web de confianza</p>
         </div>
         <div class="header-content-menu">
-            <a href="#home">Inicio</a>
+            <a href="./index.php">Inicio</a>
             <a href="#games">Juegos</a>
             <a href="#about">Sobre nosotros</a>
         </div>
