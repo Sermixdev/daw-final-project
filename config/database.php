@@ -1,32 +1,39 @@
 <?php
 require "connectionData.php";
 
-function conectar(){
-    $con = mysqli_connect($GLOBALS["host"], $GLOBALS["user"], $GLOBALS["pass"])
-    or die("Error al conectar con la base de datos");
-    crear_bdd($con);
-    return $con;
-}
-function crear_bdd($con){
-    try{
-        mysqli_query($con, "CREATE DATABASE EcommerceDB;");
-        mysqli_select_db($con, $GLOBALS["db_name"]);
-        crear_tabla_clientes($con);
-        rellenar_tabla_clientes($con);
-        crear_tabla_productos($con);
-        rellenar_tabla_productos($con);
-        crear_tabla_pedidos($con);
-        crear_tabla_detalles($con);
-        crear_tabla_devoluciones($con);
-        crear_tabla_newsletter($con);
-        rellenar_tabla_newsletter($con);
-    }catch(Exception $e){
-        mysqli_select_db($con, $GLOBALS["db_name"]);
+class Database{
+
+    public static function connect(){
+
+        $db = mysqli_connect($GLOBALS["host"], $GLOBALS["user"], $GLOBALS["pass"])
+        or die("Error al conectar con la base de datos");
+        return $db;
+
     }
+
+    public static function create_db(){
+        try{
+            $db=self::connect();
+            mysqli_query($db, "CREATE DATABASE EcommerceDB;");
+            mysqli_select_db($db, $GLOBALS["db_name"]);
+            crear_tabla_clientes($db);
+            rellenar_tabla_clientes($db);
+            crear_tabla_productos($db);
+            rellenar_tabla_productos($db);
+            crear_tabla_pedidos($db);
+            crear_tabla_detalles($db);
+            crear_tabla_devoluciones($db);
+            crear_tabla_newsletter($db);
+            rellenar_tabla_newsletter($db);
+        }catch(Exception $e){
+            mysqli_select_db($db, $GLOBALS["db_name"]);
+        }
+    }
+
 }
 
-function crear_tabla_clientes($con){
-    $result = mysqli_query($con,"
+function crear_tabla_clientes($db){
+    $result = mysqli_query($db,"
     CREATE TABLE IF NOT EXISTS Clientes (
         ID_Cliente INT PRIMARY KEY auto_increment,
         NombreApellidos VARCHAR(50),
@@ -36,20 +43,20 @@ function crear_tabla_clientes($con){
         DireccionEnvio VARCHAR(255)
     );");
     if (!$result){
-        die('Error: '. mysqli_error($con));
+        die('Error: '. mysqli_error($db));
     }
 }
 
-function rellenar_tabla_clientes($con){
-    $result = mysqli_query($con,'INSERT INTO Clientes (NombreApellidos, Usuario,  Password, Email, DireccionEnvio)
+function rellenar_tabla_clientes($db){
+    $result = mysqli_query($db,'INSERT INTO Clientes (NombreApellidos, Usuario,  Password, Email, DireccionEnvio)
             VALUES ("Nombre Prueba","prueba", "1234", "prueba@correo.com", "calle Alcala 1, 3ºD");');
     if (!$result){
-        die('Error: '. mysqli_error($con));
+        die('Error: '. mysqli_error($db));
     }
 }
 
-function crear_tabla_productos($con){
-    $result = mysqli_query($con,"CREATE TABLE IF NOT EXISTS Productos (
+function crear_tabla_productos($db){
+    $result = mysqli_query($db,"CREATE TABLE IF NOT EXISTS Productos (
             ID_Producto INT PRIMARY KEY auto_increment,
             NombreProducto VARCHAR(100) UNIQUE,
             Descripcion VARCHAR(5000),
@@ -64,10 +71,10 @@ function crear_tabla_productos($con){
             Stock INTEGER(3)
         );");
 if (!$result){
-    die('Error: '. mysqli_error($con));
+    die('Error: '. mysqli_error($db));
 }}
 
-function rellenar_tabla_productos($con){
+function rellenar_tabla_productos($db){
     $query='INSERT INTO Productos (nombreProducto, Descripcion, Editorial, Precio, AnoPublicacion, EdadMinima, JugadoresMinimos, JugadoresMaximos, Ean, RutaImagen, Stock)
 
             VALUES ("Mansiones de la locura","La puerta está abierta. En los sórdidos callejones y las ominosas mansiones de Arkham se ocultan fuerzas arcanas, secretos aterradores y monstruos indescriptibles. Sectarios y demás lunáticos conspiran en el interior de estos antiguos edificios para convocar a los Primigenios, y bajo la luz de la luna acechan bestias desconocidas por los eruditos mortales. Esta noche, un puñado de valerosos investigadores se aventuran tras las puertas cerradas de Arkham para presentar batalla contra la locura que encierran en su interior... Las Mansiones de la Locura es un juego de tablero de horror y misterio totalmente cooperativo. De 1 a 5 jugadores asumen el papel de los investigadores que se adentran en las oscuras estancias de las mansiones embrujadas de Arkham y en otros lugaresigualmente siniestros para desvelar secretos extraños, resolver ingeniosos rompecabezas y enfrentarse a peligros surgidos de otros mundos. Las Mansiones de la Locura también incluye un kit de conversión para que los propietarios de la primera edición del juego puedan utilizar sus investigadores, monstruos y módulos de tablero en esta nueva edición." , "FANTASY FLIGHT GAMES", 99.99, 2016, 14, 1, 5, 8435407610705, "mansionesdelalocura.jpg", 20),
@@ -110,11 +117,11 @@ function rellenar_tabla_productos($con){
                    ("Virus!", "En el hospital Nuestra Señora de Tranjis, saltan las alarmas cuando los novatos del laboratorio se dan cuenta demasiado tarde de que los contenedores de muestras no estaban vacíos como pensaban. En su interior contienen brotes de virus experimentales que ahora campan a sus anchas por todo el centro y sólo tú puedes detenerlos.", "TRANJIS GAMES", 14.25, 2015, 8, 2, 6, 9788460659662, "virus.jpg", 20),
                    ("Combat Commander Europa", "Juego de tablero que cubre combates de infantería en la Europa de la Segunda Guerra Mundial. Un jugador toma el mando de las tropas alemanas y otro juega dirigiendo a los aliados (Rusia o EEUU). Se alternan turnos jugando cartas para mover sus unidades o abrir fuego contra el enemigo. Cada hexágono de Combat Commander representa unos 30 metros, y cada unidad representa desde un oficial al mando hasta una escuadra de combate de 10 soldados.", "DEVIR", 60.80, 2015, 12, 2, 2, 8436017221923, "combat_commander.jpg", 10),
                    ("Carcassonne Junior, Edición 2020", "Carcassonne Junior es una variante simplificada de Carcassonne, un juego que ha vendido millones de ejemplares, para que tanto los pequeños como los mayores puedan disfrutar de la partida. Pero aquí no se cuentan puntos, sino que el primero que consiga colocar todas sus figuras sobre el terreno será el ganador de esta entretenida competición.", "DEVIR", 23.75, 2020, 4, 2, 4, 8436017223644, "carcassonne_junior.jpg", 10);';
-    mysqli_query($con,$query);
+    mysqli_query($db,$query);
 
 }
 
-function crear_tabla_pedidos($con){
+function crear_tabla_pedidos($db){
     $query="CREATE TABLE IF NOT EXISTS Pedidos (
         ID_Pedido INT PRIMARY KEY auto_increment,
         FechaPedido DATE,
@@ -123,10 +130,10 @@ function crear_tabla_pedidos($con){
         DireccionEnvio VARCHAR(255),
         FOREIGN KEY (ID_Cliente) REFERENCES Clientes(ID_Cliente)
     );";
-    mysqli_query($con,$query);
+    mysqli_query($db,$query);
 }
 
-function crear_tabla_detalles($con){
+function crear_tabla_detalles($db){
     $query="CREATE TABLE IF NOT EXISTS DetallesPedido (
         ID_Detalle INT PRIMARY KEY auto_increment,
         ID_Pedido INT,
@@ -138,10 +145,10 @@ function crear_tabla_detalles($con){
         FOREIGN KEY (ID_Pedido) REFERENCES Pedidos(ID_Pedido),
         FOREIGN KEY (ID_Producto) REFERENCES Productos(ID_Producto)
     );";
-    mysqli_query($con,$query);
+    mysqli_query($db,$query);
 }
 
-function crear_tabla_devoluciones($con){
+function crear_tabla_devoluciones($db){
     $query="CREATE TABLE IF NOT EXISTS Devoluciones (
         ID_Devolucion INT PRIMARY KEY auto_increment,
         ID_DetallePedido INT,
@@ -150,20 +157,20 @@ function crear_tabla_devoluciones($con){
         Completada ENUM('no', 'devuelto') DEFAULT 'no',
         FOREIGN KEY (ID_DetallePedido) REFERENCES DetallesPedido(ID_Detalle)
     );";
-    mysqli_query($con,$query);
+    mysqli_query($db,$query);
 }
 
-function crear_tabla_newsletter($con){
+function crear_tabla_newsletter($db){
     $query="CREATE TABLE IF NOT EXISTS Newsletter (
         ID_Newsletter INT PRIMARY KEY auto_increment,
         Email VARCHAR(50) unique
     );";
-    mysqli_query($con,$query);
+    mysqli_query($db,$query);
 }
 
-function rellenar_tabla_newsletter($con){
+function rellenar_tabla_newsletter($db){
     $query="INSERT INTO Newsletter (Email) VALUES ('prueba@correo.com');";
-    mysqli_query($con,$query);
+    mysqli_query($db,$query);
 }
 
 ?>

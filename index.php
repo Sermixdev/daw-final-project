@@ -5,9 +5,9 @@ require_once 'config/parameters.php';
 require_once 'config/database.php';
 require_once 'app/includes/header.php';
 //conectar con la bbdd
-$con=conectar();
+$db=Database::connect();
 //crear la base de datos de 0
-crear_bdd($con);
+Database::create_db();
 function show_error(){
     $error = new errorController();
     $error->index();
@@ -45,3 +45,4 @@ require_once 'app/includes/footer.php';
 <!-- Aquí hay que hacer alguna lógica para que se introduzca un js u otro -->
 <!-- <script type="module" src="./public/assets/js/home.js"></script> -->
     </body>
+
