@@ -27,7 +27,7 @@
         </div>
     </div>
     <div class="header-userinfo">
-        <a id="header-userinfo-username" href="<?=base_url?>user/login">Username</a>
+        <a id="header-userinfo-username" href="<?=base_url?>user/login">Login</a>
         <a id="header-userinfo-cart" href="#cart"><img src="<?=base_url?>public/images/other/icons/user-cart.png" alt="Cart" /></a>
     </div>
 </header>

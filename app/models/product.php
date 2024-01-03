@@ -3,16 +3,16 @@
 class Product{
 
     private $id;
-    private $nombreProducto;
-    private $descripcion;
+    private $productName;
+    private $description;
     private $editorial;
-    private $precio;
-    private $anopublicacion;
-    private $edadMinima;
-    private $jugadoresMinimos;
-    private $jugadoresMaximos;
+    private $prize;
+    private $releaseYear;
+    private $minAge;
+    private $minPlayers;
+    private $maxPlayers;
     private $ean;
-    private $rutaImagen;
+    private $picPath;
     private $stock;
 
     public function __construct(){
@@ -38,33 +38,33 @@ class Product{
     /**
      * @return mixed
      */
-    public function getNombreProducto()
+    public function getProductName()
     {
-        return $this->nombreProducto;
+        return $this->productName;
     }
 
     /**
-     * @param mixed $nombreProducto
+     * @param mixed $productName
      */
-    public function setNombreProducto($nombreProducto): void
+    public function setProductName($productName): void
     {
-        $this->nombreProducto = $nombreProducto;
+        $this->productName = $productName;
     }
 
     /**
      * @return mixed
      */
-    public function getDescripcion()
+    public function getDescription()
     {
-        return $this->descripcion;
+        return $this->description;
     }
 
     /**
-     * @param mixed $descripcion
+     * @param mixed $description
      */
-    public function setDescripcion($descripcion): void
+    public function setDescription($description): void
     {
-        $this->descripcion = $descripcion;
+        $this->description = $description;
     }
 
     /**
@@ -86,81 +86,81 @@ class Product{
     /**
      * @return mixed
      */
-    public function getPrecio()
+    public function getPrize()
     {
-        return $this->precio;
+        return $this->prize;
     }
 
     /**
-     * @param mixed $precio
+     * @param mixed $prize
      */
-    public function setPrecio($precio): void
+    public function setPrize($prize): void
     {
-        $this->precio = $precio;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getAnopublicacion()
-    {
-        return $this->anopublicacion;
-    }
-
-    /**
-     * @param mixed $anopublicacion
-     */
-    public function setAnopublicacion($anopublicacion): void
-    {
-        $this->anopublicacion = $anopublicacion;
+        $this->prize = $prize;
     }
 
     /**
      * @return mixed
      */
-    public function getEdadMinima()
+    public function getReleaseYear()
     {
-        return $this->edadMinima;
+        return $this->releaseYear;
     }
 
     /**
-     * @param mixed $edadMinima
+     * @param mixed $releaseYear
      */
-    public function setEdadMinima($edadMinima): void
+    public function setReleaseYear($releaseYear): void
     {
-        $this->edadMinima = $edadMinima;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getJugadoresMinimos()
-    {
-        return $this->jugadoresMinimos;
-    }
-
-    /**
-     * @param mixed $jugadoresMinimos
-     */
-    public function setJugadoresMinimos($jugadoresMinimos): void
-    {
-        $this->jugadoresMinimos = $jugadoresMinimos;
+        $this->releaseYear = $releaseYear;
     }
 
     /**
      * @return mixed
      */
-    public function getJugadoresMaximos()
+    public function getMinAge()
     {
-        return $this->jugadoresMaximos;
+        return $this->minAge;
     }
 
     /**
-     * @param mixed $jugadoresMaximos
+     * @param mixed $minAge
      */
-    public function setJugadoresMaximos($jugadoresMaximos): void
+    public function setMinAge($minAge): void
     {
-        $this->jugadoresMaximos = $jugadoresMaximos;
+        $this->minAge = $minAge;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMinPlayers()
+    {
+        return $this->minPlayers;
+    }
+
+    /**
+     * @param mixed $minPlayers
+     */
+    public function setMinPlayers($minPlayers): void
+    {
+        $this->minPlayers = $minPlayers;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMaxPlayers()
+    {
+        return $this->maxPlayers;
+    }
+
+    /**
+     * @param mixed $maxPlayers
+     */
+    public function setMaxPlayers($maxPlayers): void
+    {
+        $this->maxPlayers = $maxPlayers;
     }
 
     /**
@@ -182,17 +182,17 @@ class Product{
     /**
      * @return mixed
      */
-    public function getRutaImagen()
+    public function getPicPath()
     {
-        return $this->rutaImagen;
+        return $this->picPath;
     }
 
     /**
-     * @param mixed $rutaImagen
+     * @param mixed $picPath
      */
-    public function setRutaImagen($rutaImagen): void
+    public function setPicPath($picPath): void
     {
-        $this->rutaImagen = $rutaImagen;
+        $this->picPath = $picPath;
     }
 
     /**

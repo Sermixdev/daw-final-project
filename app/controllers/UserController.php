@@ -41,6 +41,7 @@ class userController
                     mysqli_close($this->db);
                     echo "userFound";
                     $_SESSION ['userLogged'] = "$Usuario";
+
                 }
 
             }
