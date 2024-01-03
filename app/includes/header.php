@@ -13,7 +13,7 @@
 <body>
 <header>
     <div class="header-logo">
-        <a href="./index.php"><img src="./public/images/other/icons/web-logo.png" alt="Logo de la pagina web" /></a>
+        <a href="./index.php"><img src="<?=base_url?>public/images/other/icons/web-logo.png" alt="Logo de la pagina web" /></a>
     </div>
     <div class="header-content">
         <div class="header-content-title">
@@ -28,6 +28,6 @@
     </div>
     <div class="header-userinfo">
         <a id="header-userinfo-username" href="<?=base_url?>user/login">Username</a>
-        <a id="header-userinfo-cart" href="#cart"><img src="./public/images/other/icons/user-cart.png" alt="Cart" /></a>
+        <a id="header-userinfo-cart" href="#cart"><img src="<?=base_url?>public/images/other/icons/user-cart.png" alt="Cart" /></a>
     </div>
 </header>
