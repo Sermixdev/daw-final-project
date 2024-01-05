@@ -120,5 +120,21 @@ class User
         }
         return $result;
     }
+
+    public function register(){
+        $result = false;
+        $user= $this->user;
+        $pass = $this->password;
+        $nameSurname = $this->nameSurname;
+        $email = $this->email;
+        $address = $this->address;
+        $result=$this->db->query("insert into ecommercedb.clientes 
+    (NombreApellidos, Usuario, Password, Email, DireccionEnvio)
+VALUES ($nameSurname,$user,$pass,$email,$address);");
+        if (!$result){
+            die('Error: '. mysqli_error($this->db));
+        }
+        return $result;
+    }
 }
 

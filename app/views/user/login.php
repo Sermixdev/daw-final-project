@@ -1,6 +1,6 @@
 <!--we start the views with <body> but the </body> is in the index-->
 <body>
-<form method="post" action="$_SERVER['PHP_SELF']" method="post">
+<form method="post" action="<?=base_url?>User/checkLogin" method="post">
     <fieldset id="loginBox">
         <legend>
             <h2>Introduzca el nombre de usuario y contraseña:</h2>

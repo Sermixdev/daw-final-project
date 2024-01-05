@@ -32,13 +32,13 @@ class userController
                 echo "DatabaseKO";
             } else {
                 if (mysqli_num_rows($userExist) == 0) {
-                    mysqli_close($this->db);
+                    //mysqli_close($this->db);
                     echo "noUserPassFound";
                 } else {
                     while ($row = mysqli_fetch_array($userExist)) {
                         extract($row);
                     }
-                    mysqli_close($this->db);
+                    //mysqli_close($this->db);
                     echo "userFound";
                     $_SESSION ['userLogged'] = "$Usuario";
 
@@ -49,4 +49,7 @@ class userController
 
     }
 
+    public function newUser(){
+
+    }
 }
