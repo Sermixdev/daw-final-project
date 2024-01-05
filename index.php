@@ -9,7 +9,7 @@ $db=Database::connect();
 //crear la base de datos de 0
 Database::create_db();
 function show_error(){
-    $error = new errorController();
+    $error = new ErrorController();
     $error->index();
 }
 

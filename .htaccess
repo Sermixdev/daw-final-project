@@ -1,7 +1,7 @@
 <IfModule mod_rewrite.c>
 #Activar rewrite
 RewriteEngine on
-ErrorDocument 404 http://localhost/app/views/error/error.php
+ErrorDocument 404 http://localhost/workspace/app/Error/
 
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-f

@@ -13,17 +13,17 @@
 <body>
 <header>
     <div class="header-logo">
-        <a href="./index.php"><img src="<?=base_url?>public/images/other/icons/web-logo.png" alt="Logo de la pagina web" /></a>
+        <a href="<?=base_url?>"><img src="<?=base_url?>public/images/other/icons/web-logo.png" alt="Logo de la pagina web" /></a>
     </div>
     <div class="header-content">
         <div class="header-content-title">
-            <a href="./index.php"><h1>WEB ECOMMERCE</h1></a>
+            <a href="<?=base_url?>"><h1>WEB ECOMMERCE</h1></a>
             <p>Tu web de confianza</p>
         </div>
         <div class="header-content-menu">
-            <a href="./index.php">Inicio</a>
-            <a href="#games">Juegos</a>
-            <a href="#about">Sobre nosotros</a>
+            <a href="<?=base_url?>">Inicio</a>
+            <a href="<?=base_url?>Product/">Juegos</a>
+            <a href="<?=base_url?>AboutUs/">Sobre nosotros</a>
         </div>
     </div>
     <div class="header-userinfo">

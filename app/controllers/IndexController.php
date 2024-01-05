@@ -3,6 +3,6 @@
 class IndexController
 {
     public function index(){
-        echo "index";
+        echo "index con";
     }
 }
