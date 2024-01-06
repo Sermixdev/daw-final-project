@@ -42,7 +42,5 @@ if(class_exists($nombre_controlador)){
 require_once 'app/includes/footer.php';
 
 ?>
-<!-- Aquí hay que hacer alguna lógica para que se introduzca un js u otro -->
-<!-- <script type="module" src="./public/assets/js/home.js"></script> -->
-    </body>
-
+<script type="module" src="./public/assets/js/index.js"></script>
+</body>
