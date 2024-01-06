@@ -1,4 +1,11 @@
 /* General styles */
+:root {
+    --primary-color: #27627b;
+    --hover-color: #1e4d64;
+    --background-light: #f3f3f3;
+    --border-radius: 4px;
+    --box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
 * {
     box-sizing: border-box;
@@ -152,6 +159,87 @@ a:visited {
     border-radius: 70px;
     text-align: justify;
 }
+/* Button styles */
+
+.button {
+    font-size: 18px;
+    margin: 10px;
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    width: auto;
+}
+
+.button:hover {
+    background-color: var(--hover-color);
+}
+
+/* Form Styles */
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    max-width: 30%;
+    min-width: 200px;
+}
+
+.form-fieldset {
+    width: 100%;
+    padding: 20px;
+    background-color: #f3f3f3;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    border: none;
+}
+
+.form h2 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+.form-fieldset label {
+    font-weight: bold;
+}
+.form-fieldset label,
+.form-fieldset input {
+    margin-bottom: 20px;
+}
+
+.form-fieldset input[type='text'],
+.form-fieldset input[type='password'] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-fieldset .button {
+    width: 30%;
+    padding: 10px;
+    background-color: #27627b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-fieldset .button:hover {
+    background-color: #1e4d64;
+}
+
+.form-fieldset p {
+    margin-top: 20px;
+}
 
 /* Footer styles*/
 
@@ -216,7 +304,7 @@ footer > * {
 /* Error404 styles*/
 
 .bodyError {
-    background-image: url("error404.png");
+    background-image: url('error404.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -230,26 +318,26 @@ footer > * {
     justify-content: center;
     align-items: center;
     height: 100vh;
-  }
-  .errorH1 {
+}
+.errorH1 {
     font-size: 3em;
     margin-bottom: 10px;
     color: #27627b;
-  }
+}
 
-  .errorH2 {
+.errorH2 {
     font-size: 2em;
     margin-bottom: 20px;
     color: #1d4f63;
-  }
+}
 
-  .errorP {
+.errorP {
     font-size: 1.2em;
     margin-bottom: 30px;
     color: #1d4f63;
-  }
+}
 
-  .errorButton {
+.errorButton {
     padding: 10px 20px;
     font-size: 1em;
     background-color: #27627b;
@@ -257,8 +345,8 @@ footer > * {
     border: none;
     cursor: pointer;
     border-radius: 50px;
-  }
+}
 
-  .errorButton:hover {
+.errorButton:hover {
     background-color: #1d4f63;
-  }
+}
