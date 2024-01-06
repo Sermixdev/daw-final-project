@@ -116,8 +116,11 @@ class User
         $result= false;
         $user = $this->user;
         $pass = $this->password;
-        $result=$this->db->query("select Usuario FROM EcommerceDB.clientes 
-             WHERE Usuario='$user' AND Password='$pass';");
+        $result=$this->db->query(
+            "select Usuario 
+            FROM EcommerceDB.clientes 
+            WHERE Usuario='$user' AND Password='$pass';"
+        );
         if (!$result){
             die('Error: '. mysqli_error($this->db));
         }
@@ -134,9 +137,10 @@ class User
         $nameSurname = $this->nameSurname;
         $email = $this->email;
         $address = $this->address;
-        $result=$this->db->query("insert into ecommercedb.clientes 
-    (NombreApellidos, Usuario, Password, Email, DireccionEnvio)
-VALUES ('$nameSurname', '$user', '$pass', '$email', '$address');");
+        $result=$this->db->query("
+            insert into ecommercedb.clientes 
+            (NombreApellidos, Usuario, Password, Email, DireccionEnvio)
+            VALUES ('$nameSurname', '$user', '$pass', '$email', '$address');");
         if (!$result){
             die('Error: '. mysqli_error($this->db));
         }
