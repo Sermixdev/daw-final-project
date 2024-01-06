@@ -42,5 +42,6 @@ if(class_exists($nombre_controlador)){
 require_once 'app/includes/footer.php';
 
 ?>
-<script type="module" src="./public/assets/js/index.js"></script>
+<script type="module" src="<?= base_url . 'public/assets/js/index.js'; ?>"></script>
+
 </body>
