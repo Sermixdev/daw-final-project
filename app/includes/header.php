@@ -22,8 +22,8 @@
         </div>
         <div class="header-content-menu">
             <a href="<?=base_url?>">Inicio</a>
-            <a href="<?=base_url?>Product/">Juegos</a>
-            <a href="<?=base_url?>AboutUs/">Sobre nosotros</a>
+            <a href="<?=base_url?>Product/index">Juegos</a>
+            <a href="<?=base_url?>AboutUs/index">Sobre nosotros</a>
         </div>
     </div>
     <div class="header-userinfo">

@@ -20,5 +20,6 @@
     </fieldset>
     <br />
 </form>
-<!-- We need to remember to load the js file somewhere -->
+
+<p>¿No tienes una cuenta? <a href="<?=base_url?>user/register">REGÍSTRATE AQUÍ</a></p>
 
