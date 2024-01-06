@@ -4,7 +4,7 @@ if (!isset($_SESSION['userLogged'])){
 }
 $username = $_SESSION['userLogged'];
 ?>
-Hola <?php $username?>
+<p>Hola <?php echo $username;?>.<br> Este es tu panel de usuarix para revisar tus pedidos.</p>
 <form action="<?=base_url?>User/logout" method="post">
     <button type="submit" name="logout_button">Desconectar</button>
-</form>>
+</form>
