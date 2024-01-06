@@ -15,9 +15,9 @@
             <label for="password">Contraseña:</label>
             <input type="password" id="password" name="password" /><br /><br />
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" /><br /><br />
+            <input type="text" id="email" name="email" /><br /><br />
             <label for="address">Dirección de envío completa:</label>
-            <input type="text" id="address" name="adress" /><br /><br />
+            <input type="text" id="address" name="address" /><br /><br />
             <input
                     class="button"
                     type="submit"

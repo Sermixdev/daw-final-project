@@ -1,4 +1,3 @@
-<!-- Paths needs change-->
 <!DOCTYPE html>
 <html lang="es">
 <head>

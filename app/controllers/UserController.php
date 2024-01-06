@@ -10,12 +10,20 @@ class userController
 
     public function login()
     {
+        //if is already logged in, the user is going to his/her panel.
+        if (isset($_SESSION['userLogged'])){
+            header("Location:".base_url."user/userPanel");
+        }
         //we are going to show the login view
         require_once 'app/views/user/login.php';
     }
 
     public function register()
     {
+        //if is already logged in, the user is going to his/her panel.
+        if (isset($_SESSION['userLogged'])){
+            header("Location:".base_url."user/userPanel");
+        }
         //we are going to show the register view
         require_once 'app/views/user/register.php';
     }
@@ -50,6 +58,21 @@ class userController
     }
 
     public function newUser(){
+        $user = new user();
+        $user->setUser($_POST['userName']);
+        $user->setNameSurname($_POST['nameSurname']);
+        $user->setPassword($_POST['password']);
+        $user->setEmail($_POST['email']);
+        $user->setAddress($_POST['address']);
+        $result = $user->register();
+        if ($result){
+            echo "Registro exitoso";
+            $_SESSION ['userLogged'] = $user->getUser();
+            header('Location:'.base_url);
+        }else{
+            echo "Error en la inserción";
+
+        }
 
     }
 }

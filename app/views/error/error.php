@@ -55,7 +55,7 @@
         padding: 20px;
         border-radius: 15px;
       ">
-            <h1 class="errorH1">¡Oops!</h1>
+            <h1 class="errorH1">¡Oops! 404</h1>
             <h2 class="errorH2">Parece que hemos extraviado algunas piezas por el camino</h2>
             <p class="errorP">
                 Mientras las buscamos, siéntete libre de explorar otras secciones,

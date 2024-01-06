@@ -110,6 +110,9 @@ class User
     }
 
     public function login(){
+        if (isset($_SESSION['userLogged'])){
+            header("Location:".base_url."user/userPanel");
+        }
         $result= false;
         $user = $this->user;
         $pass = $this->password;
@@ -122,6 +125,9 @@ class User
     }
 
     public function register(){
+        if (isset($_SESSION['userLogged'])){
+            header("Location:".base_url."user/userPanel");
+        }
         $result = false;
         $user= $this->user;
         $pass = $this->password;
@@ -130,7 +136,7 @@ class User
         $address = $this->address;
         $result=$this->db->query("insert into ecommercedb.clientes 
     (NombreApellidos, Usuario, Password, Email, DireccionEnvio)
-VALUES ($nameSurname,$user,$pass,$email,$address);");
+VALUES ('$nameSurname', '$user', '$pass', '$email', '$address');");
         if (!$result){
             die('Error: '. mysqli_error($this->db));
         }
