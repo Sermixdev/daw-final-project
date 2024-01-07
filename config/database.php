@@ -173,5 +173,10 @@ function rellenar_tabla_newsletter($db){
     mysqli_query($db,$query);
 }
 
+function insert_email_newsletter($db, $email){
+    $query="INSERT INTO Newsletter (Email) VALUES ('$email');";
+    mysqli_query($db,$query);
+}
+
 ?>
 
