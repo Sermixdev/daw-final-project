@@ -16,7 +16,7 @@
         <p>Suscríbete a nuestra Newsletter</p>
         <div class="footer-input-container">
             <form id="form">
-            <input type="email" name="email" class="footer-newsletter-input"/>
+            <input id="inputNewsletter" type="email" name="email" class="footer-newsletter-input"/>
             <button type="submit" name="enviar" class="footer-button-newsletter">
                 <img src="<?=base_url?>public/images/other/icons/CTA_newsletter.png" alt="Icon CTA_newsletter" />
             </button>

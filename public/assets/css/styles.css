@@ -303,12 +303,14 @@ footer > * {
 
 /* Error404 styles*/
 
+/* Error404 styles*/
+/* Change Absolute Path background-image */
 #bodyError {
-    background-image: url("<?=base_url?>public/images/error/error404.png");
+    background-image: url("/test/public/images/error/error404.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    font-family: 'Irish Grover', Arial, sans-serif;
+    font-family: "Irish Grover", Arial, sans-serif;
     color: #000000;
     text-align: center;
     padding: 50px;
@@ -317,8 +319,8 @@ footer > * {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-}
+    height: auto;
+  }
 
 #divError {
     background-color: rgba(255, 255, 255, 0.8);
