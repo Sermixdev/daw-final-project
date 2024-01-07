@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="<?=base_url?>public/assets/css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10" defer></script>
 
     <title>WEB ECOMMERCE</title>
@@ -23,6 +24,7 @@
             <a href="<?=base_url?>">Inicio</a>
             <a href="<?=base_url?>Product/index">Juegos</a>
             <a href="<?=base_url?>AboutUs/index">Sobre nosotros</a>
+            <a href="<?=base_url?>Contact/index">Contáctanos</a>
         </div>
     </div>
     <div class="header-userinfo">
