@@ -4,7 +4,7 @@
         extract($row);?>
         <div class="productOfFive">
             <div class="divImageOfFive">
-                <a href="<?=base_url?>public/images/pdp/productDetail&id=<?php echo $ID_Producto?>">
+                <a href="<?=base_url?>Product/productDetail&id=<?php echo $ID_Producto?>">
                     <img src="<?=base_url?>public/images/pdp/<?php echo $RutaImagen?>" class="imageOfFive">
                 </a>
             </div>
@@ -32,14 +32,14 @@
         extract($row);?>
         <div class="productOfFive">
             <div class="divImageOfFive">
-                <a href="<?=base_url?>public/images/pdp/productDetail&id=<?php echo $ID_Producto?>">
+                <a href="<?=base_url?>Product/productDetail&id=<?php echo $ID_Producto?>">
                     <img src="<?=base_url?>public/images/pdp/<?php echo $RutaImagen?>" class="imageOfFive">
                 </a>
             </div>
             <div class="detailOfFive">
                 <div class="titleOfFive"><?php echo $NombreProducto?></div>
                 <div class="brandOfFive"><?php echo $Editorial?></div>
-                <div class="ageOfFive">edad mínima:<?php echo $EdadMinima?></div>
+                <div class="ageOfFive">Edad mínima:<?php echo $EdadMinima?></div>
                 <div class="stockOfFive"><?php if ($Stock==0){
                     echo "Stock: no";
                     }else{
