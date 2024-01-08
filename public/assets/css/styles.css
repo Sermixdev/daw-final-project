@@ -305,7 +305,7 @@
   /* Error404 styles*/
   /* Change Absolute Path background-image */
   #bodyError {
-    background-image: url("/test/public/images/error/error404.png");
+    background-image: url("../../../public/images/error/error404.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

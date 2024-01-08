@@ -1,6 +1,7 @@
 <?php
 
-class Product{
+class Product
+{
 
     private $id;
     private $productName;
@@ -15,7 +16,8 @@ class Product{
     private $picPath;
     private $stock;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->db = Database::connect();
     }
 
@@ -211,5 +213,54 @@ class Product{
         $this->stock = $stock;
     }
 
+    public function lastFiveNews()
+    {
+        $result = false;
+        $result = $this->db->query(
+            "SELECT *
+            FROM EcommerceDB.productos
+            ORDER BY AnoPublicacion DESC
+            LIMIT 5;"
+        );
+        if (!$result) {
+            echo "DatabaseKO";
+            die('Error: ' . mysqli_error($this->db));
+        } else {
+            if (mysqli_num_rows($result) == 0) {
+                //mysqli_close($this->db);
+                echo "noProductsFound";
+            } else {
+                return $result;
+            }
+
+        }
+
+
+    }
+
+    public function childFive()
+    {
+        $result = false;
+        $result = $this->db->query(
+            "SELECT *
+            FROM EcommerceDB.productos
+            ORDER BY EdadMinima ASC
+            LIMIT 5;"
+        );
+        if (!$result) {
+            echo "DatabaseKO";
+            die('Error: ' . mysqli_error($this->db));
+        } else {
+            if (mysqli_num_rows($result) == 0) {
+                //mysqli_close($this->db);
+                echo "noProductsFound";
+            } else {
+                return $result;
+            }
+
+        }
+
+
+    }
 
 }
