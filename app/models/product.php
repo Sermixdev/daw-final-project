@@ -263,4 +263,20 @@ class Product
 
     }
 
+    public function getDetailById(){
+        $id = $this->getId();
+        $result = $this->db->query("SELECT *
+        FROM EcommerceDB.productos WHERE ID_Producto=$id;");
+        if (!$result) {
+            echo "DatabaseKO";
+            die('Error: ' . mysqli_error($this->db));
+        } else {
+            if (mysqli_num_rows($result) == 0) {
+                //mysqli_close($this->db);
+                echo "noProductsFound";
+            } else {
+                return $result;
+            }
+        }
+    }
 }

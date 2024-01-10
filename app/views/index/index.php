@@ -1,5 +1,5 @@
-<div id="lastFive">
-    <h2 id="lastFiveTitle">Novedades</h2>
+<div id="lastFive" class="divProductsInIndex">
+    <h2 id="lastFiveTitle" class="h2ProductsInIndex">Novedades</h2>
     <?php while ($row = mysqli_fetch_array($result)) {
         extract($row);?>
         <div class="productOfFive">
@@ -26,8 +26,8 @@
 </div>
 
 
-<div id="childFive">
-    <h2 id="childFiveTitle">Para los más peques</h2>
+<div id="childFive" class="divProductsInIndex">
+    <h2 id="childFiveTitle" class="h2ProductsInIndex">Para los más peques</h2>
     <?php while ($row = mysqli_fetch_array($childResult)) {
         extract($row);?>
         <div class="productOfFive">
