@@ -279,4 +279,27 @@ class Product
             }
         }
     }
+    public function productList($page){
+        $untilThisID = ($page)*15;
+        $result = $this->db->query("SELECT *
+        FROM EcommerceDB.productos WHERE ID_Producto<=$untilThisID order by ID_Producto DESC LIMIT 15;");
+        if (!$result) {
+            echo "DatabaseKO";
+            die('Error: ' . mysqli_error($this->db));
+        } else {
+            if (mysqli_num_rows($result) == 0) {
+                //mysqli_close($this->db);
+                echo "noProductsFound";
+            } else {
+                return $result;
+            }
+        }
+    }
+
+    public function totalPages(){
+        $result = $this->db->query("SELECT * FROM EcommerceDB.productos");
+        $numberOfProducts = mysqli_num_rows($result);
+        return ($numberOfProducts)/15;
+    }
 }
+

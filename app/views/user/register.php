@@ -1,6 +1,6 @@
 <!--we start the views with <body> but the </body> is in the index-->
 <body>
-<form class="form" method="post" action="<?=base_url?>User/newUser" method="post">
+<form class="form" method="post" action="<?=base_url?>User/newUser">
     <h2>¡Bienvenidx a la familia Gecomme!</h2>
     <h3>Introduce tus datos para crear una nueva cuenta</h3>
     <fieldset class="form-fieldset">

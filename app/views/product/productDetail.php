@@ -1,5 +1,5 @@
 <div id="divProductPage">
-    <h2 id="productPageTitle">Ficha del producto</h2>
+    <h2 id="productPageTitle" class="pageTitle">Ficha del producto</h2>
     <?php while ($row = mysqli_fetch_array($result)) {
         extract($row);?>
     <div id="divProductImg">
