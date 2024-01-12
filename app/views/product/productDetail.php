@@ -40,7 +40,7 @@
             } ?>
         </div>
         <div id="divBuyButton">
-            <a href="<?=base_url?>Product/buy&id=<?php echo $ID_Producto?>">
+            <a href="<?=base_url?>Product/buy?id=<?php echo $ID_Producto?>">
                 Añadir al carrito
             </a>
         </div>
