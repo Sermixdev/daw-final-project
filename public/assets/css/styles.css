@@ -597,7 +597,7 @@ footer > * {
     margin-bottom: 10px;
 }
 
-#divBuyButton a {
+#divBuyButton {
     padding: 10px 20px;
     font-size: 1em;
     background-color: #27627b;
@@ -608,6 +608,6 @@ footer > * {
     text-decoration: none;
 }
 
-#divBuyButton a:hover {
+#divBuyButton:hover {
     background-color: #1d4f63;
 }
