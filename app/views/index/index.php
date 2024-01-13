@@ -13,7 +13,7 @@
                 <div class="card-title"><?php echo $NombreProducto?></div>
                 <div class="card-brand"><?php echo $Editorial?></div>
                 <div class="card-stock"><?php echo $Stock==0 ? "Stock: no" : "Stock: sí"; ?></div>
-                <div class="card-price"><?php echo $Precio?></div>
+                <div class="card-price"><?php echo $Precio?> &euro;</div>
             </div>
         </div>
         <?php } ?>
@@ -35,7 +35,7 @@
                 <div class="card-title"><?php echo $NombreProducto?></div>
                 <div class="card-brand"><?php echo $Editorial?></div>
                 <div class="card-stock"><?php echo $Stock==0 ? "Stock: no" : "Stock: sí"; ?></div>
-                <div class="card-price"><?php echo $Precio?></div>
+                <div class="card-price"><?php echo $Precio?> &euro;</div>
             </div>
         </div>
         <?php } ?>
