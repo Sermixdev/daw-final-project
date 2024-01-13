@@ -1,6 +1,6 @@
 <!--we start the views with <body> but the </body> is in the index-->
 <body>
-<form class="form" method="post" action="<?=base_url?>User/checkLogin" method="post">
+<form class="form" method="post" action="<?=base_url?>User/checkLogin">
     <h2>Introduzca el nombre de usuario y contraseña:</h2>
     <fieldset class="form-fieldset">
         <div>
