@@ -22,7 +22,7 @@
         </div>
         <div class="header-content-menu">
             <a href="<?=base_url?>">Inicio</a>
-            <a href="<?=base_url?>Product/plp">Juegos</a>
+            <a href="<?=base_url?>Product/productlist">Juegos</a>
             <a href="<?=base_url?>AboutUs/index">Sobre nosotros</a>
             <a href="<?=base_url?>Contact/index">Contáctanos</a>
         </div>

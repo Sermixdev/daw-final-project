@@ -281,8 +281,9 @@ class Product
     }
     public function productList($page){
         $untilThisID = ($page)*15;
+        $fromThisID = ($page - 1)*15;
         $result = $this->db->query("SELECT *
-        FROM EcommerceDB.productos WHERE ID_Producto<=$untilThisID order by ID_Producto DESC LIMIT 15;");
+        FROM EcommerceDB.productos WHERE ID_Producto<=$untilThisID AND ID_Producto>$fromThisID;");
         if (!$result) {
             echo "DatabaseKO";
             die('Error: ' . mysqli_error($this->db));
@@ -299,7 +300,7 @@ class Product
     public function totalPages(){
         $result = $this->db->query("SELECT * FROM EcommerceDB.productos");
         $numberOfProducts = mysqli_num_rows($result);
-        return ($numberOfProducts)/15;
+        return ceil(($numberOfProducts)/15);
     }
 }
 

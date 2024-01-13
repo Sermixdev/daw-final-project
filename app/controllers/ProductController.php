@@ -29,12 +29,13 @@ class ProductController
     public function productList()
     {
         $product = new Product();
+        $totalPages = $product->totalPages();
         // Verificar si 'page' está seteado y tiene el valor 1 o si no está seteado
         if (isset($_GET['page']) && $_GET['page'] == 1 || !isset($_GET['page'])) {
             $result = $product->productList(1);
+            $page=1;
         } else {
             $page=$_GET['page'];
-            $totalPages = $product->totalPages();
             $result = $product->productList($page);
         }
         require_once 'app/views/product/productList.php';
