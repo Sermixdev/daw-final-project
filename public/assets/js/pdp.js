@@ -3,6 +3,9 @@ url = url.replace('&id=', '?id=');
 let urlObj = new URL(url);
 let params = new URLSearchParams(urlObj.search);
 let id = params.get('id');
+
+id = Number(id);
+
 let cookieName = 'cookieArray';
 let itemCount = document.getElementById('itemCount');
 
@@ -10,6 +13,8 @@ let divBuyButton = document.getElementById('divBuyButton');
 if (divBuyButton) {
     divBuyButton.addEventListener('click', () => {
         let cookieArray = getCookieArray(cookieName);
+        cookieArray = cookieArray.map(Number);
+
         cookieArray.push(id);
         setCookieArray(cookieName, cookieArray);
         showItemCount();
