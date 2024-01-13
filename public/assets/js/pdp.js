@@ -12,7 +12,6 @@ if (divBuyButton) {
         let cookieArray = getCookieArray(cookieName);
         cookieArray.push(id);
         setCookieArray(cookieName, cookieArray);
-        console.log('Ha clickeado');
         showItemCount();
     });
 }
