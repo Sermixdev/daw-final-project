@@ -2,7 +2,7 @@
 
 class Cart
 {
-    private $orden_date;
+    private $order_date;
     private $clientID;
     private $stateOfPayment;
     private $deliveryAdress;
@@ -17,17 +17,17 @@ class Cart
     /**
      * @return mixed
      */
-    public function getOrdenDate()
+    public function getOrderDate()
     {
-        return $this->orden_date;
+        return $this->order_date;
     }
 
     /**
-     * @param mixed $orden_date
+     * @param mixed $order_date
      */
-    public function setOrdenDate($orden_date): void
+    public function setOrderDate($order_date): void
     {
-        $this->orden_date = $orden_date;
+        $this->order_date = $order_date;
     }
 
     /**

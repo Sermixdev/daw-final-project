@@ -41,9 +41,11 @@ class CartController
             }
 
             $cart->setOrderDetails($arrayOfDetails);
-            $result = $cart->getAllOrderDetails($uniqueID);
-            require_once 'app/views/cart/index.php';
+            $arraydeDetails=$cart->getOrderDetails();
 
+            $result = $cart->getAllOrderDetails($uniqueID);
+            $arrayDetails=$cart->getOrderDetails();
+            require_once 'app/views/cart/index.php';
 
         } else {
             echo "La cookie 'nombreDeLaCookie' no está establecida.";

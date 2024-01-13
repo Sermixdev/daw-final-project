@@ -4,7 +4,8 @@ $total = 0;
 echo "<h2 class='sectionTitle'>Productos del carrito</h2>";
 while ($row = mysqli_fetch_array($result)) {
     extract($row);
-
+    $Cantidad=$arraydeDetails[$i-1]->getAmount();
+    $i++;
     ?>
     <div class="divOrderDetails">
         <div class="divProductImg">
@@ -20,13 +21,12 @@ while ($row = mysqli_fetch_array($result)) {
             Precio Unitario:<?php echo $Precio ?>
         </div>
         <div class="subTotal">
-            Subtotal: <?php echo $Subtotal ?>
+            Subtotal: <?php echo ($Subtotal=($Precio*$Cantidad)) ?>
         </div>
     </div>
     <?php
-    if ($Devuelto=="no"){
-        $total+=$Subtotal;
-    }
+    $total+=$Subtotal;
+
 }
 echo "<div id='total'>Total: $total </div>"
 ?>
