@@ -611,3 +611,11 @@ footer > * {
 #divBuyButton:hover {
     background-color: #1d4f63;
 }
+
+#itemCount {
+    display: none;
+    position: absolute;
+    margin-left: 30px;
+    color: green;
+    font-weight: bold;
+}

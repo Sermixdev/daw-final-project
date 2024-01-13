@@ -4,6 +4,7 @@ let urlObj = new URL(url);
 let params = new URLSearchParams(urlObj.search);
 let id = params.get('id');
 let cookieName = 'cookieArray';
+let itemCount = document.getElementById('itemCount');
 
 let divBuyButton = document.getElementById('divBuyButton');
 if (divBuyButton) {
@@ -11,6 +12,8 @@ if (divBuyButton) {
         let cookieArray = getCookieArray(cookieName);
         cookieArray.push(id);
         setCookieArray(cookieName, cookieArray);
+        console.log('Ha clickeado');
+        showItemCount();
     });
 }
 
@@ -35,4 +38,11 @@ function getCookie(name) {
         }
     }
     return null;
+}
+
+function showItemCount() {
+    itemCount.style.display = 'inline';
+    setTimeout(() => {
+        itemCount.style.display = 'none';
+    }, 1500);
 }

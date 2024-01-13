@@ -40,7 +40,8 @@
             } ?>
         </div>
         <div id="divBuyButton">
-                Añadir al carrito
+            Añadir al carrito
+            <span id="itemCount">+1</span>
         </div>
     </div>
     <div id="productDescription">
