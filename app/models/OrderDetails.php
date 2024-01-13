@@ -126,5 +126,18 @@ private $subtotal;
         $this->subtotal = $subtotal;
     }
 
-
+    public function getAllDetailsFromThisOrder($user){
+        $order=$this->getOrderID();
+        $result=$this->db->query("SELECT dp.ID_Detalle, dp.ID_Pedido, p.NombreProducto, p.RutaImagen, dp.Cantidad, dp.Devuelto, dp.PrecioUnitario, dp.Subtotal,
+              pe.FechaPedido, pe.EstadoPago, pe.DireccionEnvio
+              FROM EcommerceDB.DetallesPedido dp
+              INNER JOIN EcommerceDB.Pedidos pe ON dp.ID_Pedido = pe.ID_Pedido
+              INNER JOIN EcommerceDB.Clientes c ON pe.ID_Cliente = c.ID_Cliente
+              INNER JOIN EcommerceDB.Productos p ON dp.ID_Producto = p.ID_Producto
+              WHERE dp.ID_Pedido = $order AND c.Usuario = '$user';");
+        if (!$result){
+            die('Error: '. mysqli_error($this->db));
+        }
+        return $result;
+    }
 }
