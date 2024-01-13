@@ -18,6 +18,7 @@ class CartController
             $uniqueID = array();
             $sumaDeID = array();
 
+
             // Contar la frecuencia de cada número
             $frecuencia = array_count_values($cookieValue);
 
@@ -30,7 +31,7 @@ class CartController
             $i = 1;
             $cart = new Cart();
             $arrayOfDetails = [];
-            while ($i < $arrayLenght) {
+            while ($i <= $arrayLenght) {
                 $detail = new OrderDetails();
                 $productID = $uniqueID[$i - 1];
                 $amount = $sumaDeID[$i - 1];

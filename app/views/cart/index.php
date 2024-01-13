@@ -1,11 +1,11 @@
 <?php
-$i = 1;
+$a = 1;
 $total = 0;
 echo "<h2 class='sectionTitle'>Productos del carrito</h2>";
 while ($row = mysqli_fetch_array($result)) {
     extract($row);
-    $Cantidad=$arraydeDetails[$i-1]->getAmount();
-    $i++;
+    $Cantidad=$arraydeDetails[$a-1]->getAmount();
+    $a++;
     ?>
     <div class="divOrderDetails">
         <div class="divProductImg">
