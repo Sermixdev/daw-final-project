@@ -26,7 +26,7 @@ echo "<h2 class='sectionTitle'>Productos del carrito</h2>";
                                value="<?php echo $Cantidad ?>" min="0" max="<?php echo $Stock ?>" readonly>
                     </div>
                     <div class="prizePerUnit">
-                        Precio Unitario:<?php echo $Precio ?>
+                        Precio Unitario: <?php echo $Precio ?>
                     </div>
                     <div class="subTotal">
                         Subtotal: <?php echo($Subtotal = ($Precio * $Cantidad)) ?>
