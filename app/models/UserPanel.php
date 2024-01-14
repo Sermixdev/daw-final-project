@@ -32,6 +32,7 @@ class UserPanel
             if (mysqli_num_rows($result) == 0) {
                 //mysqli_close($this->db);
                 echo "Aún no has hecho ninguna compra";
+                return $result;
             } else {
                 return $result;
             }
