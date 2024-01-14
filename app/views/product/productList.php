@@ -28,7 +28,7 @@
         if ($page > 1) {
             echo "<div id='back'><a href=" . base_url . "Product/productlist" . "&page=" . ($page - 1) . "> < </a></div>";
         } else {
-            echo "<div id=back><span> < </span></div>";
+            echo "<div id=back><span class='blockedBack'> < </span></div>";
         }
         $i = 1;
         ?>
@@ -49,7 +49,7 @@
             if ($page < $totalPages) {
                 echo "<div id='next'><a href=" . base_url . "Product/productlist" . "&page=" . ($page + 1) . "> > </a></div>";
             } else {
-                echo "<div id=next><span> > </span></div>";
+                echo "<div id='next'><span class='blockedNext'> > </span></div>";
             }
 
             ?>

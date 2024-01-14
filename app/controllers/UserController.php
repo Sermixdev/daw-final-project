@@ -16,7 +16,7 @@ class userController
     {
         //if is already logged in, the user is going to his/her panel.
         if (isset($_SESSION['userLogged'])){
-            header("Location:".base_url."user/userPanel");
+            header("Location:".base_url."userpanel/index");
         }else{require_once 'app/views/user/login.php';}
         //we are going to show the login view
 
@@ -32,18 +32,7 @@ class userController
 
     }
 
-    // Sends the user to the userPanel view
-    public function userPanel()
-    {
-        //if is not already logged in, the user is going to the login view.
-        if (!isset($_SESSION['userLogged'])){
-            header("Location:".base_url."user/login");
-        }else{
-            //we are going to show the userPanel view
-            require_once 'app/views/user/userPanel.php';
-        }
 
-    }
 // function executed when the user press login button
     public function checkLogin(){
         if ($_SERVER["REQUEST_METHOD"] == "POST") {

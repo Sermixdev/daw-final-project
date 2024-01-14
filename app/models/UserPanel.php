@@ -1,6 +1,6 @@
 <?php
 
-class Order
+class UserPanel
 {
 
     private $id;
@@ -13,6 +13,31 @@ class Order
     public function __construct()
     {
         $this->db = Database::connect();
+    }
+
+    public function getAllOrders()
+    {
+        $result = false;
+        $usuario= $_SESSION['userLogged'];
+        $result = $this->db->query(
+            "SELECT dp.*
+			FROM EcommerceDB.Pedidos dp
+            INNER JOIN EcommerceDB.Clientes c on dp.ID_Pedido = c.ID_Cliente
+            WHERE c.Usuario= '$usuario';"
+        );
+        if (!$result) {
+            echo "DatabaseKO";
+            die('Error: ' . mysqli_error($this->db));
+        } else {
+            if (mysqli_num_rows($result) == 0) {
+                //mysqli_close($this->db);
+                echo "Aún no has hecho ninguna compra";
+            } else {
+                return $result;
+            }
+        }
+
+
     }
 
     /**

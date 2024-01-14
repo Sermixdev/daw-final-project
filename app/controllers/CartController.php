@@ -55,7 +55,7 @@ class CartController
     }
 
     public function buy(){
-
+        $carrit=$cart;
     }
 
 }

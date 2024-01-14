@@ -8,7 +8,6 @@ while ($row = mysqli_fetch_array($result)) {
         <div id="divOrder">
             <h2 class="sectionTitle">Datos del pedido</h2>
             <div class="orderData">Identificador de pedido: <?php echo $ID_Pedido ?> </div>
-            <div class="orderData">Estado del pago: <?php echo $EstadoPago ?> </div>
             <div class="orderData">Fecha del pedido: <?php echo $FechaPedido ?> </div>
             <div class="orderData">Dirección del pedido: <?php echo $DireccionEnvio ?> </div>
         </div>

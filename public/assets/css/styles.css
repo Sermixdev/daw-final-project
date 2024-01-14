@@ -791,7 +791,6 @@ footer > * {
     margin: 0 10px;
     font-size: 1.5em;
     color: var(--primary-color);
-    cursor: pointer;
 }
 
 #pageNumbers {
