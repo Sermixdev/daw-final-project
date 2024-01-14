@@ -99,7 +99,8 @@ class Cart
         $idString = implode(',', $uniqueID);
         $noBrackets = str_replace('""', '"', $idString);
         $noBracketsIds = str_replace('"', '', $noBrackets);
-        $result = $this->db->query("SELECT * FROM EcommerceDB.productos WHERE ID_Producto IN ($noBracketsIds);");
+        $result = $this->db->query("SELECT * FROM EcommerceDB.productos WHERE ID_Producto IN ($noBracketsIds)
+ORDER BY FIELD(ID_Producto, $noBracketsIds);");
         if (!$result) {
             echo "DatabaseKO";
             die('Error: ' . mysqli_error($this->db));

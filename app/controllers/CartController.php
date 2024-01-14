@@ -54,4 +54,8 @@ class CartController
 
     }
 
+    public function buy(){
+
+    }
+
 }

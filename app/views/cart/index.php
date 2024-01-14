@@ -3,7 +3,7 @@ $a = 1;
 $total = 0;
 echo "<h2 class='sectionTitle'>Productos del carrito</h2>";
 ?>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+<form method="post" action="<?=base_url?>cart/index">
     <?php
     while ($row = mysqli_fetch_array($result)) {
         extract($row);
@@ -23,7 +23,7 @@ echo "<h2 class='sectionTitle'>Productos del carrito</h2>";
             <div class="amount">
                 <span>Cantidad:</span>
                 <input type="number" id="amount<?php echo($a - 1) ?>" name="amount<?php echo($a - 1) ?>"
-                       value="<?php echo $Cantidad ?>" min="0" max="<?php echo $Stock ?>">
+                       value="<?php echo $Cantidad ?>" min="0" max="<?php echo $Stock ?>" readonly>
             </div>
             <div class="prizePerUnit">
                 Precio Unitario:<?php echo $Precio ?>
@@ -43,9 +43,4 @@ echo "<h2 class='sectionTitle'>Productos del carrito</h2>";
         </div>';
     echo "</form>";
     echo "<div id='total'>Total: $total </div>";
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        if (isset($_POST["divBuyButton"])) {
-
-        }
-    }
     ?>
