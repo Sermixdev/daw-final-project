@@ -63,23 +63,30 @@ class userController
 
     }
 
-    public function newUser(){
+    public function newUser()
+    {
         $user = new user();
         $user->setUser($_POST['userName']);
+        $user->setEmail($_POST['email']);
+        // Check if user or email already exists
+        $errors = $user->checkUser();
+        $errors .= $user->checkEmail();
+        if (!empty($errors)) {
+            $_SESSION['registerErrors'] = $errors;
+            header('Location:' . base_url . 'user/register');
+            return;
+        }
         $user->setNameSurname($_POST['nameSurname']);
         $user->setPassword($_POST['password']);
-        $user->setEmail($_POST['email']);
         $user->setAddress($_POST['address']);
         $result = $user->register();
-        if ($result){
+        if ($result) {
             echo "Registro exitoso";
-            $_SESSION ['userLogged'] = $user->getUser();
-            header('Location:'.base_url);
-        }else{
+            $_SESSION['userLogged'] = $user->getUser();
+            header('Location:' . base_url);
+        } else {
             echo "Error en la inserción";
-
         }
-
     }
     public function logout(){
         if(isset($_POST['logout_button'])){

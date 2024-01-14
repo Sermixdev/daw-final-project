@@ -146,5 +146,25 @@ class User
         }
         return $result;
     }
+
+    public function checkUser(){
+        $user = $this->user;
+        $errors = '';
+        $resultUser = $this->db->query("SELECT Usuario FROM EcommerceDB.clientes WHERE Usuario='$user';");
+        if ($resultUser->num_rows > 0){
+            $errors .= 'El usuario ya existe. ';
+        }
+        return $errors;
+    }
+    
+    public function checkEmail(){
+        $email = $this->email;
+        $errors = '';
+        $resultEmail = $this->db->query("SELECT Email FROM EcommerceDB.clientes WHERE Email='$email';");
+        if ($resultEmail->num_rows > 0){
+            $errors .= 'El email ya está en uso. ';
+        }
+        return $errors;
+    }
 }
 

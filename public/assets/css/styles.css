@@ -303,7 +303,6 @@ footer > * {
 }
 
 /* Error404 styles*/
-/* Change Absolute Path background-image */
 #bodyError {
     background-image: url('../../../public/images/error/error404.png');
     background-size: cover;
@@ -437,6 +436,68 @@ footer > * {
     color: #000000;
     font-size: 1.2em;
 }
+
+.contactForm {
+    font-family: quicksand;
+    display: block;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px 0px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgba(249, 249, 249, 0.5);
+    text-align: center;
+  }
+  
+  .contactForm input {
+    width: 40%;
+    padding: 3px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+  
+  .contactForm textarea {
+    margin-bottom: 20px;
+    width: 40%;
+    padding: 3px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  #contactButton {
+    padding: 10px 10px;
+    font-size: 0.8em;
+    background-color: #27627b;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+  }
+  
+  #contactButton:hover {
+    background-color: #1d4f63;
+  }
+  
+  #contactP {
+    font-size: 1.2em;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  #contactErrors p {
+    color: red;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 1em;
+  }
+  
+  #contactSuccess p {
+    color: green;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 1em;
+  }
 
 /* Index Styles  */
 

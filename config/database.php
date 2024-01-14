@@ -27,6 +27,7 @@ class Database{
             crear_tabla_devoluciones($db);
             crear_tabla_newsletter($db);
             rellenar_tabla_newsletter($db);
+            crear_tabla_contacto($db);
         }catch(Exception $e){
             mysqli_select_db($db, $GLOBALS["db_name"]);
         }
@@ -192,5 +193,18 @@ function insert_email_newsletter($db, $email){
     mysqli_query($db,$query);
 }
 
+function crear_tabla_contacto($db){
+    $result = mysqli_query($db,"
+    CREATE TABLE IF NOT EXISTS Contacto (
+        ID_Contacto INT PRIMARY KEY auto_increment,
+        Nombre VARCHAR(50),
+        Email VARCHAR(50),
+        Telefono VARCHAR(9),
+        Mensaje VARCHAR(255)
+    );");
+    if (!$result){
+        die('Error: '. mysqli_error($db));
+    }
+}
 ?>
 
