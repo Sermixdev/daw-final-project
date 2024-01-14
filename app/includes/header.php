@@ -39,7 +39,11 @@
         </div>
     </div>
     <div class="header-userinfo">
-        <a id="header-userinfo-username" href="<?=base_url?>user/login">Login</a>
-        <a id="header-userinfo-cart" href="<?=base_url?>Cart/index"><img src="<?=base_url?>public/images/other/icons/user-cart.png" alt="Cart" /></a>
+        <?php if(isset($_SESSION['userLogged']) && !empty($_SESSION['userLogged'])): ?>
+            <a id="header-userinfo-username" href="<?= base_url ?>user/login"><?php echo $_SESSION['userLogged']; ?></a>
+        <?php else: ?>
+            <a id="header-userinfo-username" href="<?= base_url ?>user/login">Login</a>
+        <?php endif; ?>
+        <a id="header-userinfo-cart" href="<?= base_url ?>Cart/index"><img src="<?= base_url ?>public/images/other/icons/user-cart.png" alt="Cart" /></a>
     </div>
 </header>
