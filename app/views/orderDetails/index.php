@@ -32,7 +32,7 @@ while ($row = mysqli_fetch_array($result)) {
             Devuelto:<?php echo $Devuelto ?>
         </div>
         <div class="prizePerUnit">
-            Precio Unitario:<?php echo $PrecioUnitario ?>
+            Precio Unitario: <?php echo $PrecioUnitario ?>
         </div>
         <div class="subTotal">
             Subtotal: <?php echo $Subtotal ?>
