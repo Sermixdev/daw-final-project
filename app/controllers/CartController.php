@@ -48,8 +48,7 @@ class CartController
             $arrayDetails = $cart->getOrderDetails();
             if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION['userLogged'])) {
                 // Verifies if we have pressed "Finalizar compra" button
-                if (isset($_POST["divBuyButton"])) {
-                    $p=0;
+                if (isset($_POST["finishOrder"])) {
                     //let´s set the order, we need date, userID, stateofPayment and deliveryAddress
                     $cart->setOrderDateByTimestamp();
                     $cart->setClientIdFromSessions();
@@ -57,9 +56,8 @@ class CartController
                     $cart->setDeliveryAddressFromSessionsUser();
                     $cart->createNewOrder();
                     $orderID=$cart->getOrderIdFromLastOrder();
-
-
-
+                    $p=0;
+                    echo $arrayLenght;
                     //let´s set the orderDetails now, we already have the ProductID, we need orderID, amount,
                     //isReturned, UnitPrize and Subtotal
                     $arrayOfDetails=$cart->getOrderDetails();
@@ -72,9 +70,13 @@ class CartController
                         $arrayOfDetails[$p]->setUnitPrize($prizePerUnitOfThisProduct);
                         $subTotal=($amountPurchase*$prizePerUnitOfThisProduct);
                         $arrayOfDetails[$p]->setSubtotal($subTotal);
+                        echo $p;
+                        $p++;
+
                     }
-                    $cart->setOrderDetails($arrayOfDetails[]);
+                    $cart->setOrderDetails($arrayOfDetails);
                     $cart->createAllOrderDetails($arrayLenght);
+                    header("Location:".base_url."userpanel/index");
                 }
             } elseif($_SERVER["REQUEST_METHOD"] == "POST"){
                 header("Location:".base_url."user/login");

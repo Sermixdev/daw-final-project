@@ -36,6 +36,7 @@ echo "<h2 class='sectionTitle'>Productos del carrito</h2>";
         $total += $Subtotal;
         $a++;
     }
+    echo '<button type="submit" name="finishOrder" id="finishOrder">Finalizar Compra</button>';
     echo '
         <div id="divBuyButton">
             FINALIZAR COMPRA

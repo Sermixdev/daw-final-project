@@ -117,7 +117,7 @@ ORDER BY FIELD(ID_Producto, $noBracketsIds);");
     public function setClientIdFromSessions()
     {
         $customerUser = $_SESSION['userLogged'];
-        $result = $this->db->query("SELECT ID_Cliente from EcommerceDB.clientes WHERE Usuario=$customerUser;");
+        $result = $this->db->query("SELECT ID_Cliente from EcommerceDB.clientes WHERE Usuario='$customerUser';");
         $row = mysqli_fetch_array($result);
         extract($row);
         $this->clientID = $ID_Cliente;
@@ -133,7 +133,7 @@ ORDER BY FIELD(ID_Producto, $noBracketsIds);");
     public function setDeliveryAddressFromSessionsUser()
     {
         $customerUser = $_SESSION['userLogged'];
-        $result = $this->db->query("SELECT DireccionEnvio from EcommerceDB.clientes WHERE Usuario=$customerUser;");
+        $result = $this->db->query("SELECT DireccionEnvio from EcommerceDB.clientes WHERE Usuario='$customerUser';");
         $row = mysqli_fetch_array($result);
         extract($row);
         $this->deliveryAdress = $DireccionEnvio;
@@ -169,8 +169,16 @@ ORDER BY FIELD(ID_Producto, $noBracketsIds);");
             $orderID=$arrayOfDetails[$p]->getOrderID();
             $amount=$arrayOfDetails[$p]->getAmount();
             $returned=$arrayOfDetails[$p]->getReturned();
-            //$unitPrize=$arrayOfDetails[$p]->get
-
+            $unitPrize=$arrayOfDetails[$p]->getUnitPrize();
+            $subTotal=$arrayOfDetails[$p]->getSubtotal();
+            $p++;
+            $result = $this->db->query("
+            insert into ecommercedb.detallespedido 
+            (ID_Pedido, ID_Producto, Cantidad, Devuelto, PrecioUnitario, Subtotal)
+              VALUES ($orderID, $productID, $amount, '$returned', $unitPrize, $subTotal);");
+            if (!$result) {
+                die('Error: ' . mysqli_error($this->db));
+            }
         }
     }
 }

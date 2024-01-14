@@ -22,7 +22,7 @@ class UserPanel
         $result = $this->db->query(
             "SELECT dp.*
 			FROM EcommerceDB.Pedidos dp
-            INNER JOIN EcommerceDB.Clientes c on dp.ID_Pedido = c.ID_Cliente
+            INNER JOIN EcommerceDB.Clientes c on dp.ID_Cliente = c.ID_Cliente
             WHERE c.Usuario= '$usuario';"
         );
         if (!$result) {
