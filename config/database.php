@@ -21,7 +21,9 @@ class Database{
             crear_tabla_productos($db);
             rellenar_tabla_productos($db);
             crear_tabla_pedidos($db);
+            rellenar_tabla_pedidos($db);
             crear_tabla_detalles($db);
+            rellenar_tabla_detalles($db);
             crear_tabla_devoluciones($db);
             crear_tabla_newsletter($db);
             rellenar_tabla_newsletter($db);
@@ -133,6 +135,13 @@ function crear_tabla_pedidos($db){
     mysqli_query($db,$query);
 }
 
+function rellenar_tabla_pedidos($db){
+    $query="insert into Pedidos (FechaPedido, ID_Cliente, EstadoPago, DireccionEnvio)
+Values ('2024-01-12',1,'por pagar','Calle Manco de Lepanto');";
+    mysqli_query($db,$query);
+}
+
+
 function crear_tabla_detalles($db){
     $query="CREATE TABLE IF NOT EXISTS DetallesPedido (
         ID_Detalle INT PRIMARY KEY auto_increment,
@@ -145,6 +154,11 @@ function crear_tabla_detalles($db){
         FOREIGN KEY (ID_Pedido) REFERENCES Pedidos(ID_Pedido),
         FOREIGN KEY (ID_Producto) REFERENCES Productos(ID_Producto)
     );";
+    mysqli_query($db,$query);
+}
+function rellenar_tabla_detalles($db){
+    $query="INSERT INTO DetallesPedido (ID_Pedido, ID_Producto, Cantidad, Devuelto, PrecioUnitario, Subtotal)
+              VALUES (1, 1, 2, 'no', 99.99, 199.98),(1, 2, 1, 'no', 49.99, 49.99);";
     mysqli_query($db,$query);
 }
 
