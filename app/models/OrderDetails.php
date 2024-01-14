@@ -140,4 +140,11 @@ private $subtotal;
         }
         return $result;
     }
+    public function getProductPrizeUsingProductID(){
+        $product=$this->getProductID();
+        $result=$this->db->query("SELECT Precio FROM EcommerceDB.Productos WHERE ID_Producto=$product;");
+        $row = mysqli_fetch_array($result);
+        extract($row);
+        return $Precio;
+    }
 }

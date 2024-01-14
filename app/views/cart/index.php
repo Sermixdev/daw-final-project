@@ -8,7 +8,7 @@ echo "<h2 class='sectionTitle'>Productos del carrito</h2>";
     while ($row = mysqli_fetch_array($result)) {
         extract($row);
         $Cantidad = $arraydeDetails[$a - 1]->getAmount();
-        $a++;
+
         ?>
         <div class="divOrderDetails">
             <div class="divProductImg">
@@ -34,7 +34,7 @@ echo "<h2 class='sectionTitle'>Productos del carrito</h2>";
         </div>
         <?php
         $total += $Subtotal;
-
+        $a++;
     }
     echo '
         <div id="divBuyButton">

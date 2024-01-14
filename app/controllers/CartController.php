@@ -42,20 +42,49 @@ class CartController
             }
 
             $cart->setOrderDetails($arrayOfDetails);
-            $arraydeDetails=$cart->getOrderDetails();
+            $arraydeDetails = $cart->getOrderDetails();
 
             $result = $cart->getAllOrderDetails($uniqueID);
-            $arrayDetails=$cart->getOrderDetails();
-            require_once 'app/views/cart/index.php';
+            $arrayDetails = $cart->getOrderDetails();
+            if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_SESSION['userLogged'])) {
+                // Verifies if we have pressed "Finalizar compra" button
+                if (isset($_POST["divBuyButton"])) {
+                    $p=0;
+                    //let´s set the order, we need date, userID, stateofPayment and deliveryAddress
+                    $cart->setOrderDateByTimestamp();
+                    $cart->setClientIdFromSessions();
+                    $cart->setStateOfPayment("por pagar");
+                    $cart->setDeliveryAddressFromSessionsUser();
+                    $cart->createNewOrder();
+                    $orderID=$cart->getOrderIdFromLastOrder();
 
+
+
+                    //let´s set the orderDetails now, we already have the ProductID, we need orderID, amount,
+                    //isReturned, UnitPrize and Subtotal
+                    $arrayOfDetails=$cart->getOrderDetails();
+                    while($p<$arrayLenght){
+                        $arrayOfDetails[$p]->setOrderID($orderID);
+                        $amountPurchase=$_POST['amount'.$p];
+                        $arrayOfDetails[$p]->setAmount($amountPurchase);
+                        $arrayOfDetails[$p]->setReturned('no');
+                        $prizePerUnitOfThisProduct= $arrayOfDetails[$p]->getProductPrizeUsingProductID();
+                        $arrayOfDetails[$p]->setUnitPrize($prizePerUnitOfThisProduct);
+                        $subTotal=($amountPurchase*$prizePerUnitOfThisProduct);
+                        $arrayOfDetails[$p]->setSubtotal($subTotal);
+                    }
+                    $cart->setOrderDetails($arrayOfDetails[]);
+                    $cart->createAllOrderDetails($arrayLenght);
+                }
+            } elseif($_SERVER["REQUEST_METHOD"] == "POST"){
+                header("Location:".base_url."user/login");
+
+            }else{
+                require_once 'app/views/cart/index.php';
+            }
         } else {
             echo "La cookie 'nombreDeLaCookie' no está establecida.";
         }
 
     }
-
-    public function buy(){
-        $carrit=$cart;
-    }
-
 }

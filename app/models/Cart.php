@@ -114,4 +114,63 @@ ORDER BY FIELD(ID_Producto, $noBracketsIds);");
         }
     }
 
+    public function setClientIdFromSessions()
+    {
+        $customerUser = $_SESSION['userLogged'];
+        $result = $this->db->query("SELECT ID_Cliente from EcommerceDB.clientes WHERE Usuario=$customerUser;");
+        $row = mysqli_fetch_array($result);
+        extract($row);
+        $this->clientID = $ID_Cliente;
+    }
+
+    public function setOrderDateByTimestamp()
+    {
+        $timestamp = strtotime('now');
+        $formattedDate = date('Y-m-d', $timestamp);
+        $this->order_date = $formattedDate;
+    }
+
+    public function setDeliveryAddressFromSessionsUser()
+    {
+        $customerUser = $_SESSION['userLogged'];
+        $result = $this->db->query("SELECT DireccionEnvio from EcommerceDB.clientes WHERE Usuario=$customerUser;");
+        $row = mysqli_fetch_array($result);
+        extract($row);
+        $this->deliveryAdress = $DireccionEnvio;
+    }
+
+    public function createNewOrder()
+    {
+        $orderDate = $this->getOrderDate();
+        $clientID = $this->getClientID();
+        $stateOfPayment = $this->getStateOfPayment();
+        $deliveryAddress = $this->getDeliveryAdress();
+        $result = $this->db->query("
+            insert into ecommercedb.pedidos 
+            (FechaPedido, ID_Cliente, EstadoPago, DireccionEnvio)
+            VALUES ('$orderDate', '$clientID', '$stateOfPayment', '$deliveryAddress');");
+        if (!$result) {
+            die('Error: ' . mysqli_error($this->db));
+        }
+        return $result;
+    }
+
+    public function getOrderIdFromLastOrder()
+    {
+        return mysqli_insert_id($this->db);
+    }
+
+    public function createAllOrderDetails($arrayLenght)
+    {
+        $arrayOfDetails = $this->getOrderDetails();
+        $p = 0;
+        while ($p < $arrayLenght) {
+            $productID=$arrayOfDetails[$p]->getProductID();
+            $orderID=$arrayOfDetails[$p]->getOrderID();
+            $amount=$arrayOfDetails[$p]->getAmount();
+            $returned=$arrayOfDetails[$p]->getReturned();
+            //$unitPrize=$arrayOfDetails[$p]->get
+
+        }
+    }
 }
