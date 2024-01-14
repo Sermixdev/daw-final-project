@@ -39,9 +39,9 @@
                 echo "Stock: sí";
             } ?>
         </div>
-        <div class="divBuyButton">
-            Finalizar compra
-            <span class="itemCount">+1</span>
+        <div id="divBuyButton">
+            Añadir al carrito
+            <span id="itemCount">+1</span>
         </div>
     </div>
     <div id="productDescription">
