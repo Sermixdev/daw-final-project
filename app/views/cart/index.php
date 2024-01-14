@@ -3,7 +3,7 @@ $a = 1;
 $total = 0;
 echo "<h2 class='sectionTitle'>Productos del carrito</h2>";
 ?>
-<form method="post" action="<?=base_url?>cart/index">
+<form id="cartForm" method="post" action="<?=base_url?>cart/index">
     <?php
     while ($row = mysqli_fetch_array($result)) {
         extract($row);

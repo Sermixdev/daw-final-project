@@ -18,6 +18,11 @@ if (divBuyButton) {
         cookieArray.push(id);
         setCookieArray(cookieName, cookieArray);
         showItemCount();
+
+        divBuyButton.disabled = true;
+        setTimeout(() => {
+            divBuyButton.disabled = false;
+        }, 1500);
     });
 }
 

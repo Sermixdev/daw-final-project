@@ -598,18 +598,18 @@ footer > * {
 }
 
 #divBuyButton {
-    padding: 10px 20px;
-    font-size: 1em;
-    background-color: #27627b;
-    color: #fff;
-    border: none;
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    display: inline-block;
+    text-align: center;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: var(--border-radius);
     cursor: pointer;
-    border-radius: 50px;
-    text-decoration: none;
 }
-
 #divBuyButton:hover {
-    background-color: #1d4f63;
+    background-color: var(--hover-color);
 }
 
 #itemCount {
@@ -618,4 +618,194 @@ footer > * {
     margin-left: 30px;
     color: green;
     font-weight: bold;
+}
+
+/* Cart Styles  */
+#cartForm {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.divOrderDetails {
+    display: flex;
+    width: 80%;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.divProductImg {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divProductImg img {
+    width: 100px;
+    height: auto;
+    border-radius: var(--border-radius);
+}
+
+.divProductTitle {
+    flex: 2;
+    font-size: 1em;
+    color: #333;
+    padding: 5px;
+    text-align: left;
+}
+
+.amount,
+.prizePerUnit {
+    flex: 1;
+    font-size: 0.9em;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.amount input {
+    width: 50px;
+    margin-left: 10px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+}
+
+.subTotal {
+    flex: 1;
+    font-size: 0.9em;
+    color: var(--primary-color);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#total {
+    font-size: 1.2em;
+    color: var(--primary-color);
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* PLP Styles */
+
+#plp {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 20px;
+}
+
+.h2ProductsListTitle {
+    font-size: 2em;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.productOf {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    background-color: rgba(255, 255, 255, 0.9);
+    width: calc(20% - 40px);
+    max-width: 300px;
+}
+
+.divImage {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imageOf {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    transition: transform 0.3s ease;
+}
+
+.imageOf:hover {
+    transform: scale(1.05);
+}
+
+.detailOf {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.detailOf > div {
+    margin: 5px 0;
+}
+
+.titleOf,
+.brandOf {
+    color: #333;
+    font-size: 1em;
+}
+
+.stockOf {
+    font-size: 0.9em;
+    color: #008000;
+    font-weight: bold;
+}
+
+.prizeOf {
+    font-size: 1em;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+#pages {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#back,
+#next {
+    margin: 0 10px;
+    font-size: 1.5em;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+#pageNumbers {
+    display: flex;
+    align-items: center;
+}
+
+#pageNumbers a {
+    margin: 0 5px;
+    font-size: 1em;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+#pageNumbers a:hover {
+    text-decoration: underline;
 }
