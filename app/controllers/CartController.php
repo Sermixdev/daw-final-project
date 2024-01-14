@@ -76,6 +76,7 @@ class CartController
                     }
                     $cart->setOrderDetails($arrayOfDetails);
                     $cart->createAllOrderDetails($arrayLenght);
+                    setcookie("cookieArray", "", time() - 3600, "/");
                     header("Location:".base_url."userpanel/index");
                 }
             } elseif($_SERVER["REQUEST_METHOD"] == "POST"){
