@@ -26,10 +26,10 @@ echo "<h2 class='sectionTitle'>Productos del carrito</h2>";
                                value="<?php echo $Cantidad ?>" min="0" max="<?php echo $Stock ?>" readonly>
                     </div>
                     <div class="prizePerUnit">
-                        Precio Unitario: <?php echo $Precio ?>
+                        Precio Unitario: <?php echo $Precio ?> &euro;
                     </div>
                     <div class="subTotal">
-                        Subtotal: <?php echo($Subtotal = ($Precio * $Cantidad)) ?>
+                        Subtotal: <?php echo($Subtotal = ($Precio * $Cantidad)) ?> &euro;
                     </div>
                 </div>
         
@@ -39,7 +39,7 @@ echo "<h2 class='sectionTitle'>Productos del carrito</h2>";
             }
     };
 
-    echo "<div id='total'>Total: $total </div>";
-    echo '<button type="submit" name="finishOrder" id="finishOrder">Finalizar Compra</button>';
+    echo "<div id='total'>Total: $total &euro;</div>";
+    echo '<button type="submit" name="finishOrder" id="purchase">Finalizar Compra</button>';
     echo "</form>";
     ?>
