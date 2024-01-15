@@ -152,8 +152,8 @@ a:visited {
     flex: 1;
     display: flex;
     flex-direction: column;
-    margin: 3%;
     padding: 40px;
+    margin: 0 3%;
     border: 2px solid rgba(0, 0, 0, 0.141);
     background-color: #ffffff1a;
     box-shadow: 0 0 1px #27627b19;
@@ -929,8 +929,9 @@ footer > * {
 
 .divOrderDetails {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    align-self: center;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid var(--primary-color);
@@ -966,4 +967,46 @@ footer > * {
 
 .logout-form .button:hover {
     background-color: var(--hover-color);
+}
+
+/* Total price styles */
+
+#total {
+    background-color: #ffffff;
+    color: #27627b;
+    padding: 15px 30px;
+    margin: 30px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 1.2em;
+    font-weight: bold;
+    width: fit-content;
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Purchase button styles  */
+
+#purchase {
+    background-color: #ffffff;
+    color: #27627b;
+    padding: 15px 30px;
+    margin: 30px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    font-size: 1.2em;
+    font-weight: bold;
+    width: fit-content;
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+#purchase:hover {
+    color: white;
+    background-color: var(--hover-color);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.6);
 }

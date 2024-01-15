@@ -4,6 +4,7 @@ if (!isset($_SESSION['userLogged'])) {
 }
 $username = $_SESSION['userLogged'];
 ?>
+    <h2 id="productPageTitle" class="productsListTitle">Panel del usuario</h2>
 <div class="body-content">
     <p>Hola <span class="username-highlight"><?= $username; ?></span>.<br> Este es tu panel de usuarix para revisar tus pedidos.</p>
     <div class="orderDetailsContainer">
