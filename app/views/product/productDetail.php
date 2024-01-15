@@ -1,4 +1,4 @@
-<div id="productPageContainer" class="product-detail">
+<div class="product-detail">
     <h2 id="productPageTitle" class="pageTitle">Ficha del producto</h2>
     <?php while ($row = mysqli_fetch_array($result)) {
         extract($row);?>

@@ -1,58 +1,52 @@
-<div id="plp" class="productsList">
-    <h2 id="lastFiveTitle" class="h2ProductsListTitle">Novedades</h2>
+<div class="productsList">
+    <h2 class="productsListTitle">Novedades</h2>
+    <div class="productsGrid">
     <?php while ($row = mysqli_fetch_array($result)) {
         extract($row); ?>
-        <div class="productOf">
-            <div class="divImage">
+        <div class="productCard">
+            <div class="productImage">
                 <a href="<?= base_url ?>Product/productDetail&id=<?php echo $ID_Producto ?>">
-                    <img src="<?= base_url ?>public/images/pdp/<?php echo $RutaImagen ?>" class="imageOf">
+                        <img src="<?= base_url ?>public/images/pdp/<?php echo $RutaImagen ?>" alt="<?php echo $NombreProducto ?>">
                 </a>
             </div>
-            <div class="detailOf">
-                <div class="titleOfFive titleOf"><?php echo $NombreProducto ?></div>
-                <div class="brandOfFive brandOf"><?php echo $Editorial ?></div>
-                <div class="stockOfFive stockOf"><?php if ($Stock == 0) {
-                        echo "Stock: no";
-                    } else {
-                        echo "Stock: sí";
-                    } ?>
-                </div>
-                <div class="prizeOf"><?php echo $Precio ?></div>
+            <div class="productDetails">
+                <div class="productName"><?php echo $NombreProducto ?></div>
+                <div class="productBrand"><?php echo $Editorial ?></div>
+                <div class="productStock"><?php echo $Stock == 0 ? "Stock: no" : "Stock: sí" ?></div>
+                <div class="productPrice"><?php echo $Precio ?></div>
             </div>
         </div>
-        <?php
-    }
-    ?>
-    <div id="pages">
-        <?php
-        if ($page > 1) {
-            echo "<div id='back'><a href=" . base_url . "Product/productlist" . "&page=" . ($page - 1) . "> < </a></div>";
-        } else {
-            echo "<div id=back><span class='blockedBack'> < </span></div>";
-        }
-        $i = 1;
-        ?>
-        <div id="pageNumbers">
+    <?php } ?>
+    </div>
+    <div id="pagination">
+        <div class="paginationControl">
             <?php
-            while ($i <= $totalPages) {
-                if ($i==$page){
-                    echo $i;
-                }else{
-                ?>
-                <a href="<?= base_url ?>Product/productlist&page=<?php echo $i ?>"><?php echo $i ?></a>
-                <?php
-                }
-                $i++;
-            }?>
+            if ($page > 1) {
+                echo "<a href='" . base_url . "Product/productlist&page=" . ($page - 1) . "' aria-label='Previous page'> < </a>";
+            } else {
+                echo "<span class='disabled'> < </span>";
+            }
+            ?>
         </div>
+        <div class="pageNumbers">
+            <?php
+            for ($i = 1; $i <= $totalPages; $i++) {
+                if ($i == $page) {
+                    echo "<span class='currentPage'>$i</span>";
+                } else {
+                    echo "<a href='" . base_url . "Product/productlist&page=$i'>$i</a>";
+                }
+            }
+            ?>
+        </div>
+        <div class="paginationControl">
             <?php
             if ($page < $totalPages) {
-                echo "<div id='next'><a href=" . base_url . "Product/productlist" . "&page=" . ($page + 1) . "> > </a></div>";
+                echo "<a href='" . base_url . "Product/productlist&page=" . ($page + 1) . "' aria-label='Next page'> > </a>";
             } else {
-                echo "<div id='next'><span class='blockedNext'> > </span></div>";
+                echo "<span class='disabled'> > </span>";
             }
-
             ?>
-
+        </div>
     </div>
 </div>
