@@ -1,5 +1,5 @@
 <div class="productsList">
-    <h2 class="productsListTitle">Novedades</h2>
+    <h2 class="productsListTitle">Todos nuestros juegos</h2>
     <div class="productsGrid">
     <?php while ($row = mysqli_fetch_array($result)) {
         extract($row); ?>
@@ -13,7 +13,7 @@
                 <div class="productName"><?php echo $NombreProducto ?></div>
                 <div class="productBrand"><?php echo $Editorial ?></div>
                 <div class="productStock"><?php echo $Stock == 0 ? "Stock: no" : "Stock: sí" ?></div>
-                <div class="productPrice"><?php echo $Precio ?></div>
+                <div class="productPrice"><?php echo $Precio ?> &euro;</div>
             </div>
         </div>
     <?php } ?>
