@@ -8,18 +8,23 @@ $email = $_POST['email'];
 $con = Database::connect();
 mysqli_select_db($con, $GLOBALS["db_name"]);
 
-// Check if the email already exists in the database
-$query = "SELECT * FROM newsletter WHERE email = '$email'";
-$result = mysqli_query($con, $query);
-
-if (mysqli_num_rows($result) > 0) {
-    // The email already exists in the database.
-    $response['message'] = "Este correo electrónico ya está registrado.";
+// Check if the email field is empty
+if (empty($email)) {
+    $response['message'] = "El campo de correo electrónico no puede estar vacío.";
 } else {
-    // The email does not exist in the database, so we insert it
-    insert_email_newsletter($con, $email);
-    $response['success'] = true;
-    $response['message'] = "¡Suscripción exitosa!";
+    // Check if the email already exists in the database
+    $query = "SELECT * FROM newsletter WHERE email = '$email'";
+    $result = mysqli_query($con, $query);
+
+    if (mysqli_num_rows($result) > 0) {
+        // The email already exists in the database.
+        $response['message'] = "Este correo electrónico ya está registrado.";
+    } else {
+        // The email does not exist in the database, so we insert it
+        insert_email_newsletter($con, $email);
+        $response['success'] = true;
+        $response['message'] = "¡Suscripción exitosa!";
+    }
 }
 
 mysqli_close($con);
