@@ -13,7 +13,7 @@ echo "<h2 class='sectionTitle'>Productos del carrito</h2>";
                 <div class="divOrderDetails">
                     <div class="divProductImg">
                         <a href="<?= base_url ?>Product/productDetail&id=<?php echo $ID_Producto ?>">
-                            <img class="productImg" title="<?php $NombreProducto ?>" alt="<?php $NombreProducto ?>"
+                            <img class="productImg" title="<?php echo $NombreProducto ?>" alt="<?php echo $NombreProducto ?>"
                                  src="<?= base_url ?>public/images/pdp/<?php echo $RutaImagen ?>">
                         </a>
                     </div>
