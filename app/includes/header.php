@@ -14,6 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10" defer></script>
+    <script src="<?=base_url?>public/assets/js/checkContact.js" defer></script>
 
     <title>WEB ECOMMERCE</title>
 </head>
