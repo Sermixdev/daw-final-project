@@ -590,95 +590,6 @@ footer > * {
 
 /* Product Detail Styles (PDP) */
 
-/* .product-detail {
-    display: flex;
-    flex-direction: row;
-    background-color: rgba(255, 255, 255, 0.5);
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    align-items: center;
-    align-self: center;
-    padding: 20px;
-    max-width: 90%;
-}
-
-#productImg {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
-#productH1Title {
-    font-size: 1.5em;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-#productDetails {
-    text-align: left;
-    margin-bottom: 20px;
-}
-
-#productBrand,
-#productEAN,
-#productRelease,
-#productMinAge,
-#productMinPlayers,
-#productMaxPlayers {
-    font-weight: bold;
-    margin-bottom: 10px;
-    font-size: 0.9em;
-    color: #666;
-}
-
-#productConversionZone {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 20px;
-    gap: 18px;
-}
-
-#productPrize {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #27627b;
-    margin-bottom: 10px;
-}
-
-#productStock {
-    font-size: 0.9em;
-    color: #008000;
-    margin-bottom: 10px;
-}
-
-#divBuyButton,
-#finishOrder {
-    margin-top: 20px;
-    padding: 15px 30px;
-    font-size: 1.2em;
-    display: inline-block;
-    text-align: center;
-    background-color: var(--primary-color);
-    color: white;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-}
-#divBuyButton:hover {
-    background-color: var(--hover-color);
-}
-
-#itemCount {
-    display: none;
-    position: absolute;
-    margin-left: 30px;
-    color: green;
-    font-weight: bold;
-} */
-
 .product-detail {
     display: flex;
     flex-direction: row;
@@ -878,7 +789,6 @@ footer > * {
 
 .productsGrid {
     display: grid;
-    /* grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); */
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(3, auto);
     gap: 20px;
