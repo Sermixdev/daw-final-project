@@ -86,7 +86,10 @@ class CartController
                 require_once 'app/views/cart/index.php';
             }
         } else {
-            echo "La cookie 'nombreDeLaCookie' no está establecida.";
+            echo "<div class='empty-cart-container'>
+            <h2 class='productsListTitle'>Todavía no tienes artículos en tu carrito <span class='sad-face'>:(</span></h2>
+            <img src=".base_url."public/images/other/icons/empty-cart.png alt='Empty Cart' />
+            </div>";
         }
 
     }
